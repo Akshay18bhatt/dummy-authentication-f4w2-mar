@@ -10,6 +10,10 @@ const LoginPage= ()=>{
 
     async function handleSubmit(e){
         e.preventDefault();
+        if(!usernameState || !passwordState){
+            alert("Please fill fields!");
+            return;
+        }
         
         try{
 
@@ -35,9 +39,12 @@ const LoginPage= ()=>{
                 navigate("/info")
 
             }
+            else{
+                alert(`Status Error code: ${response.status}`)
+            }
         }
         catch(err){
-            console.log(err.message);
+            alert(err.message);
         }
 
     }
@@ -47,27 +54,27 @@ const LoginPage= ()=>{
             <div className="form-container">
                 <div>
                     <p>Welcome Back👋</p>
-                    <h1>Log in to your account</h1>
+                    <h1 className="login-heading">Log in to your account</h1>
                 </div>
-                <form className="form" >
+                <div className="form" >
                     <label>
                         <p><strong>UserName</strong><span style={{color:"red"}}>*</span></p>
                         <input 
                         onChange={(e)=>setUsernameState(e.target.value)}
                         type="text" 
-                        placeholder="Enter Username" 
-                        required />
+                        placeholder="Enter Username" required
+                         />
                     </label> 
                     <label>
                         <p><strong>Password</strong><span style={{color:"red"}}>*</span></p>
                         <input 
                         onChange={(e)=>setPasswordState(e.target.value)}
                         type="password" 
-                        placeholder="Enter Password" 
-                        required />
+                        placeholder="Enter Password" required
+                         />
                     </label> 
                     <button onClick={handleSubmit} >Log In</button>
-                </form>
+                </div>
             </div>
         </div>
     )
