@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 const InfoDisplayPage = () => {
   const [userDetails, setUserDetails] = useState("");
-  console.log(userDetails);
+  // console.log(userDetails);
   const details = JSON.parse(localStorage.getItem("info"));
   const { id } = details;
-  console.log(id);
+  // console.log(id);
   useEffect(() => {
     (() => {
       fetch(`https://dummyjson.com/users/${id}`)

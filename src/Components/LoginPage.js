@@ -26,10 +26,10 @@ const LoginPage= ()=>{
                     })
             })
 
-            console.log(response);
+            // console.log(response);
             if(response.status===200){
                 const responseData= await response.json();
-                console.log(responseData);
+                // console.log(responseData);
                 let info={
                     id:responseData.id,
                     token:responseData.token
@@ -62,7 +62,7 @@ const LoginPage= ()=>{
                         <input 
                         onChange={(e)=>setUsernameState(e.target.value)}
                         type="text" 
-                        placeholder="Enter Username" required
+                        placeholder="Enter Username" 
                          />
                     </label> 
                     <label>
@@ -70,7 +70,7 @@ const LoginPage= ()=>{
                         <input 
                         onChange={(e)=>setPasswordState(e.target.value)}
                         type="password" 
-                        placeholder="Enter Password" required
+                        placeholder="Enter Password" 
                          />
                     </label> 
                     <button onClick={handleSubmit} >Log In</button>
